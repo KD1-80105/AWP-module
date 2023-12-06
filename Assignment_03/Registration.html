@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #left {
+            position: absolute;
+            left: 550px;
+            top: 110px;
+        }
+
+        #video {
+            left: 60px;
+            top: 110px;
+        }
+
+        #body {
+            background-image: url(https://sunbeamfamilyservices.org/wp-content/uploads/2021/11/Do-Good-Things-Carosel-1-2.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <center>
+        <h1>Registration Form</h1>
+    </center>
+    <div id="video" style="width: 300px;position: absolute;">
+        <iframe width="400" height="200" src="https://www.youtube.com/embed/02q9aAVv1NI?si=y7zSg2NuIebvbRTc"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+
+    </div>
+    <div id="left">
+        <table style="width: 300px;">
+            <tr>
+                <td>Name </td>
+                <td><input type="text" name="" id=""></td>
+            </tr>
+            <tr>
+                <td>BirthDate </td>
+                <td><input type="date" name="" id=""></td>
+            </tr>
+            <tr>
+                <td>Email </td>
+                <td><input type="email" name="" id=""></td>
+            </tr>
+            <tr>
+                <td>Address </td>
+                <td><select name="" id="">
+                        <option value="">Maharashtra</option>
+                        <option value="">Other</option>
+                    </select>
+                    <select name="" id="">
+                        <option value="">Pune</option>
+                        <option value="">Other</option>
+                    </select>
+                    <select name="" id="">
+                        <option value="">Pune</option>
+                        <option value="">Other</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <table style="width: 400px;">
+            <tr>
+                <td>Gender</td>
+                <td><input type="radio" name="gender" id="">Male
+                    <input type="radio" name="gender" id="">Female
+                </td>
+            </tr>
+            <tr>
+                <td>Upload Photo</td>
+                <td><input type="file" name=" " id=""></td>
+            </tr>
+            <tr>
+                <td>Select Your Course</td>
+                <td><select>
+                        <option>DAC</option>
+                        <option>DMC</option>
+                        <option>DBDA</option>
+                        <option>DESC</option>
+                        <option selected>DAI</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Register"></td>
+                <td><input type="button" value="Clear"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

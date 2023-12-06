@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mainDiv {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            background-image: linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);
+        }
+
+        #inner1 {
+            height: 300px;
+            width: 300px;
+            position: absolute;
+            left: 552px;
+            top: 90px;
+            z-index: 1;
+            box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25)
+        }
+
+        #flex {
+            position: absolute;
+            top: 419px;
+            left: 541px;
+        }
+
+        #input {
+            position: absolute;
+            top: 37px;
+            left: 90px;
+        }
+
+        #input1 {
+            position: absolute;
+            top: 116px;
+            left: 90px;
+        }
+
+        #input2 {
+            position: absolute;
+            top: 194px;
+            left: 90px;
+        }
+
+        #btn1:hover {
+            background-color: tan;
+            padding: 20px;
+        }
+
+        #btn2:hover {
+            background-color: tomato;
+            padding: 20px;
+        }
+
+        #btn3:hover {
+            background-color: thistle;
+            padding: 20px;
+        }
+
+        #btn4:hover {
+            background-color: teal;
+            padding: 20px;
+        }
+
+        #heading:hover {
+            font-size: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1 id="heading" style="position: relative;z-index: 1;">Calculator</h1>
+    </center>
+    <div class="mainDiv">
+        <div id="inner1">
+            <br>
+            <h5 style="padding-left: 30px;">Num1</h5>
+            <br>
+            <h5 style="padding-left: 30px;">Num2</h5>
+            <br>
+            <h5 style="padding-left: 30px;">Result</h5>
+
+
+            <input id="input" type="number">
+            <input id="input1" type="number">
+            <input id="input2" type="text">
+
+        </div>
+        <div id="flex">
+            <input id="btn1" type="button" value="Addition" onclick="ADDITION()">
+            <input id="btn2" type="button" value="Substraction" onclick="SUBSTRACT()">
+            <input id="btn3" type="button" value="Multiplication" onclick="DIVISION()">
+            <input id="btn4" type="button" value="Division" onclick="MULTIPLICATION()">
+        </div>
+    </div>
+    <script>
+        function ADDITION(params) {
+            var refToAdd1 = document.getElementById("input");
+            var refToAdd2 = document.getElementById("input1");
+            var result = document.getElementById("input2");
+            result.value = parseInt(refToAdd1.value) + parseInt(refToAdd2.value);
+        }
+
+        function SUBSTRACT(params) {
+            var refToAdd1 = document.getElementById("input");
+            var refToAdd2 = document.getElementById("input1");
+            var result = document.getElementById("input2");
+            result.value = parseInt(refToAdd1.value) - parseInt(refToAdd2.value);
+        }
+
+        function DIVISION(params) {
+            var refToAdd1 = document.getElementById("input");
+            var refToAdd2 = document.getElementById("input1");
+            var result = document.getElementById("input2");
+            result.value = parseInt(refToAdd1.value) * parseInt(refToAdd2.value);
+        }
+
+        function MULTIPLICATION(params) {
+            var refToAdd1 = document.getElementById("input");
+            var refToAdd2 = document.getElementById("input1");
+            var result = document.getElementById("input2");
+            result.value = parseInt(refToAdd1.value) / parseInt(refToAdd2.value);
+        }
+    </script>
+</body>
+
+</html>
