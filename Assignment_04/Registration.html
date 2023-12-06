@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="Registration.css" />
+</head>
+<body>
+    <header>
+        <h1>Registration Form</h1>
+    </header>
+    
+    <div class="form">
+        <form action="server.jsp" method="post">
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" required="required" name="MyName" placeholder="Name" />*</td>
+                </tr>
+                <tr>
+                    <td>Birth Date:</td>
+                    <td><input type="date" name="myDOB" required="required" />*</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="MyEmail" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9]+$"
+                            placeholder="Email" required="required" />*</td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password"
+                            pattern="^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,12}$/g" required="required" />*</td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>
+                        <select name="state">
+                            <option value="Maharashtra">Maharashtra</option>
+                        </select>
+                        <select name="City">
+                            <option value="Ichalkaranji">Ichalkaranji</option>
+                            <option value="Shirala">Shirala</option>
+                            <option value="Karad">Karad</option>
+                            <option value="Katraj">Katraj</option>
+                        </select>
+                        <select name="District">
+                            <option value="Kolhapur">Kolhapur</option>
+                            <option value="Sangli">Sangli</option>
+                            <option value="Satara">Satara</option>
+                            <option value="Pune">Pune</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                        <radio><input type="radio" name="gender" value="Male" required="required">Male</radio>
+                        <radio><input type="radio" name="gender" value="Female" required="required">Female</radio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Upload photo</td>
+                    <td><input type="file" name="profilePhoto" accept="image/*" required="required" /></td>
+                </tr>
+                <tr>
+                    <td>Select course:</td>
+                    <td>
+                        <select name="course" required="required">
+                            <option value="Select course">Select course</option>
+                            <option value="Java">Java</option>
+                            <option value="DataBase Technologies">DataBase Technologies</option>
+                            <option value="Oracle">Oracle</option>
+                            <option value="JavaScript-React">JavaScript-React</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" name="btnRegister" value="Register" />
+                        <input type="reset" value="Clear" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('form').submit(function(event){
+                var isValid = true;
+
+                $('input[type="text"], input[type="date"], input[type="email"], input[type="password"], select, input[type="file"], input[type="radio"]').each(function(){
+                    if(!$(this).val()){
+                        $(this).addClass('invalid');
+                        isValid = false;
+                    } else {
+                        $(this).removeClass('invalid');
+                    }
+                });
+
+                if(!isValid){
+                    event.preventDefault();
+                    alert('Please fill in all required fields.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

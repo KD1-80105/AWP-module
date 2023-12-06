@@ -1,0 +1,23 @@
+[
+    {
+      "Cnum": "C1",
+      "Name": "Tom",
+      "Email": "tom.cartoon@gmail.com",
+      "Mobile": "1112223334",
+      "City": "Pune"
+    },
+    {
+      "Cnum": "C2",
+      "Name": "Jerry",
+      "Email": "jerry.cartoon@gmail.com",
+      "Mobile": "4445556667",
+      "City": "Karad"
+    },
+    {
+      "Cnum": "C3",
+      "Name": "Scooby",
+      "Email": "scooby.cartoon@gmail.com",
+      "Mobile": "7778889990",
+      "City": "Kolhapur"
+    }
+  ]

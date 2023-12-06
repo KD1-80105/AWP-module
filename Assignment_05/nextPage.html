@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Page</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div>
+        <center>
+            <h1>Customer Registration Details</h1>
+        </center>
+        <div>
+            <center>
+                <div id="registrationDetails"></div>
+            </center>
+        </div>
+    </div>
+    <script>
+        var storedData = localStorage.getItem("formData");
+        if (storedData) {
+            var formData = JSON.parse(storedData);
+
+            var detailsContainer = document.getElementById("registrationDetails");
+            detailsContainer.innerHTML = `
+               <div style="background-color:lightblue"> <p>Cnum: ${formData.Cnum}</p>
+                <p>Cname: ${formData.Cname}</p>
+                <p>Email: ${formData.Email}</p>
+                <p>Password: ${formData.Password}</p>
+                <p>Confirm Password: ${formData.ConfirmPassword}</p>
+                <p>Mobile No: ${formData.MobileNo}</p>
+                <p>City: ${formData.City}</p>
+                <p>State: ${formData.State}</p>
+                <p>Pincode: ${formData.Pincode}</p>
+                <p>Request Payment Mode: ${formData.RequestPaymentMode.join(', ')}</p>
+               </div> 
+            `;
+        } else {
+            console.log("No registration data found");
+        }
+    </script>
+</body>
+
+</html>

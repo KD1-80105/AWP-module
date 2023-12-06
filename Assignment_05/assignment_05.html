@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            position: absolute;
+            top: 100px;
+            left: 23%;
+            background-color: rgba(255, 140, 0, 0.46);
+            height: 800px;
+            width: 1000px;
+        }
+
+        #table {
+            height: 200px;
+            /* width: 200px; */
+        }
+
+        .textboxid {
+            height: 25px;
+            font-size: 14pt;
+        }
+
+        #textSize {
+            font-size: 20pt;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <header>
+            <center>
+                <h1>Customer Registration</h1>
+            </center>
+        </header>
+        <div>
+            <center>
+
+                <table id="table">
+                    <tr>
+                        <td id="textSize">Cnum: </td>
+                        <td><input type="number" name="" class="textboxid" id="1" required></td>
+                        <td id="error1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="textSize">Cname: </td>
+                        <td><input type="text" name="" class="textboxid" id="2" required></td>
+                        <td id="error2"></td>
+                    </tr>
+                    <tr>
+                        <td id="textSize">Email: </td>
+                        <td><input type="email" name="" class="textboxid" id="3" required></td>
+                        <td id="error3"></td>
+                    </tr>
+                    <tr>
+                        <td id="textSize">Password: </td>
+                        <td><input type="password" name="" class="textboxid" id="4" required></td>
+                        <td id="error4"></td>
+                    </tr>
+                    <tr>
+                        <td id="textSize">Confirm_Password: </td>
+                        <td><input type="password" name="" class="textboxid" id="5" required></td>
+                        <td id="error5"></td>
+                    </tr>
+                    <tr>
+                        <td id="textSize">Mobile_No: </td>
+                        <td><input type="number" name="" class="textboxid" id="6" required></td>
+                        <td id="error6"></td>
+                    </tr>
+                    <tr>
+                        <td id="textSize">City: </td>
+                        <td><input type="text" name="" class="textboxid" id="7" required></td>
+                        <td id="error7"></td>
+                    </tr>
+                    <tr>
+                        <td id="textSize">State: </td>
+                        <td><select name="" class="textboxid" id="8">
+                                <option value="">pune</option>
+                            </select></td>
+                        <td id="error8"></td>
+                    </tr>
+                    <tr>
+                        <td id="textSize">Pincode :</td>
+                        <td><input type="number" name="" class="textboxid" id="9" required></td>
+                        <td id="error9"></td>
+                    </tr>
+                    <tr>
+                        <td id="textSize">Request_Payment_Mode: </td>
+                        <td id="textSize">
+                            <input type="checkbox" name="p" class="textboxid" id="10_1">Debit
+                            <input type="checkbox" name="p" class="textboxid" id="10_2">Credit
+                            <input type="checkbox" name="p" class="textboxid" id="10_3">UPI
+                        <td id="error10"></td>
+                        </td>
+                    </tr>
+                </table>
+                <button type="submit" style="height: 50px;width: 150px;font-size: 20pt;" onclick="Register()">SUBMIT</button>
+            </center>
+        </div>
+    </div>
+    <script>
+        function Register() {
+            ValidateForEmpty("1", "error1", "must be a number and cannot be empty");
+            ValidateForEmpty("2", "error2", "cannot be empty");
+            ValidateForEmpty("3", "error3", "cannot be empty");
+            ValidateForEmpty("4", "error4", "Password is not matching");
+            ValidateForEmpty("5", "error5", "Confirm Password cannot be empty");
+            ValidateForEmpty("6", "error6", "must be a 10-digit number");
+            ValidateForEmpty("7", "error7", "cannot be empty");
+            ValidateForEmpty("8", "error8", "State name is required");
+            ValidateForEmpty("9", "error9", "must be a 6-digit number");
+            ValidateCheckBoxes("error10", "Select at least two checkboxes");
+
+            var formData = {
+                Cnum: document.getElementById("1").value,
+                Cname: document.getElementById("2").value,
+                Email: document.getElementById("3").value,
+                Password: document.getElementById("4").value,
+                ConfirmPassword: document.getElementById("5").value,
+                MobileNo: document.getElementById("6").value,
+                City: document.getElementById("7").value,
+                State: document.getElementById("8").value,
+                Pincode: document.getElementById("9").value,
+                RequestPaymentMode: getSelectedCheckboxes("p")
+            };
+
+            localStorage.setItem("formData", JSON.stringify(formData));
+
+            window.location.href = 'nextPage.html';
+
+        }
+
+        function ValidateForEmpty(id, errorID, errorMessage) {
+            var refToID = document.getElementById(id);
+            var refToError = document.getElementById(errorID);
+
+            if (refToID.value === "") {
+                refToError.innerText = errorMessage;
+            } else {
+                refToError.innerText = "";
+            }
+        }
+
+        function ValidateCheckBoxes(errorID, errorMessage) {
+            var checkboxes = getSelectedCheckboxes("p");
+            var refToError = document.getElementById(errorID);
+
+            if (checkboxes.length < 2) {
+                refToError.innerText = errorMessage;
+            } else {
+                refToError.innerText = "";
+            }
+        }
+
+        function getSelectedCheckboxes(name) {
+            return Array.from(document.querySelectorAll(`input[type="checkbox"][name="${name}"]:checked`)).map(checkbox => checkbox.value);
+        }
+
+    </script>
+</body>
+
+</html>
